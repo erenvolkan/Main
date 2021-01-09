@@ -1,0 +1,39 @@
+def dels(liste1, liste2):
+    if len(liste1) > len(liste2):
+        birinci = liste1[len(liste2):]
+        return liste1
+    elif len(liste1) < len(liste2):
+        return [liste2[0]] + liste1 + liste2[1:]
+    else:
+        return []
+#the upper part is related with part a in the homework
+
+def digits(number):
+    if number == 0:
+        return [0]
+    digitlast = number % 10
+    number = number // 10
+    if number == 0:
+        return [digitlast]
+    else:
+        return digits(number) + [digitlast]
+
+#the upper part is related with part b.i in the homework
+
+def multiply(x, y):
+    if x==0 or y==0:
+        return [0]
+    fst=digits(x)
+    scnd=digits(y)
+    scnd=scnd[1:]
+    return fst+scnd
+
+print(dels([3, 4, 2, 5, 6, 7], [1, 3, 4]))
+print(dels([2, 5], [3, 4, 7, 8, 9]))
+print(dels([2, 3, 4], [8, 7, 9]))
+
+print(digits(532))
+
+print(multiply(532,1000))
+
+#the upper part is related with part b.ii in the homework
